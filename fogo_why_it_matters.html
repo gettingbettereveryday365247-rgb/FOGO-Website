@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why It Matters — FOGO | Food &amp; Garden Organics</title>
+<meta name="description" content="Why food and garden organics recycling matters — methane, landfill space, soil health and the circular economy explained plainly.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --leaf:#3d6b2c;--lime:#b6d957;--lime-bright:#c8e85a;--soil:#3a2a1c;--soil-soft:#5a4631;
+  --cream:#f6f4ec;--cream-deep:#ece7d8;--bark:#7a5c3e;--rust:#c4622d;--ink:#241c14;--white:#fffdf8;
+  --shadow:rgba(58,42,28,.12);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;line-height:1.05;font-weight:600}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+
+header.nav{position:sticky;top:0;z-index:50;background:rgba(246,244,236,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--cream-deep)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{display:flex;align-items:center;gap:12px;font-family:'Fraunces';font-weight:900;font-size:1.4rem;letter-spacing:-.02em;color:var(--leaf)}
+.brand .lid{width:30px;height:18px;background:var(--lime);border-radius:6px 6px 3px 3px;border:2px solid var(--leaf);position:relative;flex:none}
+.brand .lid::after{content:"";position:absolute;left:50%;top:-5px;transform:translateX(-50%);width:12px;height:4px;background:var(--leaf);border-radius:3px}
+nav ul{display:flex;gap:30px;list-style:none;font-weight:500;font-size:.95rem}
+nav a{padding:6px 0;border-bottom:2px solid transparent;transition:.2s;color:var(--soil)}
+nav a:hover,nav a.active{border-color:var(--lime);color:var(--leaf)}
+.menu-btn{display:none;background:none;border:none;cursor:pointer;font-size:1.6rem;color:var(--leaf)}
+
+.pagehead{background:linear-gradient(160deg,var(--leaf) 0%,#2f5421 100%);color:var(--cream);padding:64px 0}
+.pagehead .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:.8rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--lime-bright);margin-bottom:18px}
+.pagehead .eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 4px rgba(182,217,87,.25)}
+.pagehead h1{font-size:clamp(2.2rem,5vw,3.4rem);max-width:22ch}
+.pagehead p{margin-top:16px;color:rgba(246,244,236,.85);max-width:56ch;font-size:1.1rem}
+
+section.block{padding:80px 0}
+.sec-eyebrow{font-size:.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--rust);margin-bottom:14px}
+.sec-title{font-size:clamp(1.8rem,3.6vw,2.5rem);color:var(--leaf);margin-bottom:14px;letter-spacing:-.01em;max-width:20ch}
+.sec-intro{font-size:1.05rem;color:var(--soil-soft);max-width:60ch;margin-bottom:40px}
+
+/* reason cards */
+.reason-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.reason-card{background:var(--white);border-radius:20px;padding:34px;box-shadow:0 8px 24px var(--shadow)}
+.reason-card .ric{font-size:2.6rem;margin-bottom:16px}
+.reason-card h3{font-size:1.3rem;color:var(--ink);margin-bottom:10px}
+.reason-card p{font-size:.95rem;color:var(--soil-soft)}
+.reason-card .src{font-size:.75rem;color:var(--bark);margin-top:14px;font-style:italic}
+
+/* methane explainer */
+.methane{background:var(--soil);color:var(--cream);border-radius:24px;padding:48px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-top:56px}
+.methane h3{color:var(--lime-bright);font-size:1.6rem;margin-bottom:16px}
+.methane p{color:rgba(246,244,236,.82);font-size:1rem;margin-bottom:14px}
+.methane-visual{background:rgba(246,244,236,.06);border-radius:16px;padding:28px;border:1px solid rgba(246,244,236,.14)}
+.compare-row{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid rgba(246,244,236,.14)}
+.compare-row:last-child{border-bottom:none}
+.compare-label{font-size:.92rem;color:rgba(246,244,236,.8)}
+.compare-bar{height:10px;border-radius:6px;background:var(--lime)}
+.compare-track{width:140px;background:rgba(246,244,236,.12);border-radius:6px;overflow:hidden}
+
+/* comparison table */
+.table-wrap{margin-top:56px;overflow-x:auto}
+table{width:100%;border-collapse:collapse;background:var(--white);border-radius:16px;overflow:hidden;box-shadow:0 8px 24px var(--shadow)}
+th,td{padding:16px 20px;text-align:left;font-size:.92rem}
+th{background:var(--leaf);color:var(--cream);font-weight:600;font-family:'Fraunces';font-size:1rem}
+td{border-bottom:1px solid var(--cream-deep);color:var(--soil-soft)}
+tr:last-child td{border-bottom:none}
+td.hl{color:var(--leaf);font-weight:600}
+
+.btn{display:inline-flex;align-items:center;gap:9px;padding:14px 26px;border-radius:40px;font-weight:600;font-size:1rem;cursor:pointer;border:2px solid transparent;transition:.22s;font-family:inherit}
+.btn-primary{background:var(--lime);color:var(--soil)}
+.btn-primary:hover{background:var(--lime-bright);transform:translateY(-2px)}
+
+footer{background:var(--ink);color:rgba(246,244,236,.7);padding:60px 0 30px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:40px}
+footer .brand{color:var(--lime-bright);margin-bottom:14px}
+footer p.tag{max-width:34ch;font-size:.92rem}
+footer h5{color:var(--cream);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}
+footer ul{list-style:none}
+footer ul li{margin-bottom:9px;font-size:.92rem}
+footer ul a:hover{color:var(--lime-bright)}
+.foot-base{border-top:1px solid rgba(246,244,236,.12);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.82rem;color:rgba(246,244,236,.45)}
+
+@media(max-width:880px){
+  .reason-grid{grid-template-columns:1fr}
+  .methane{grid-template-columns:1fr}
+  nav ul{display:none}
+  .menu-btn{display:block}
+  nav.open ul{display:flex;position:absolute;top:72px;left:0;right:0;flex-direction:column;background:var(--cream);padding:20px 24px;gap:16px;border-bottom:1px solid var(--cream-deep)}
+  .foot-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="brand"><span class="lid"></span>FOGO</a>
+    <nav id="nav">
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="what-goes-in.html">What goes in</a></li>
+        <li><a href="why-it-matters.html" class="active">Why it matters</a></li>
+        <li><a href="how-it-works.html">How it works</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="pagehead">
+  <div class="wrap">
+    <span class="eyebrow"><span class="dot"></span>The bigger picture</span>
+    <h1>Why a lime-green bin makes a real difference</h1>
+    <p>It's not just tidiness. Separating food and garden waste changes what happens to it chemically, and that has consequences for climate, landfill space, and soil.</p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="sec-eyebrow">Three reasons</div>
+    <h2 class="sec-title">What changes when scraps are sorted</h2>
+    <p class="sec-intro">Food and garden waste behaves very differently depending on where it ends up. Here's what separating it actually achieves.</p>
+
+    <div class="reason-grid">
+      <div class="reason-card">
+        <div class="ric">🌫️</div>
+        <h3>Less methane</h3>
+        <p>Buried under other rubbish, food waste breaks down without oxygen and produces methane — a greenhouse gas many times more potent than CO₂ over the short term. Composting is an aerobic process, so it largely avoids this.</p>
+        <div class="src">Source: Sustainability Victoria, Clean Air Council</div>
+      </div>
+      <div class="reason-card">
+        <div class="ric">🏔️</div>
+        <h3>Landfill lasts longer</h3>
+        <p>Food and garden material makes up a large share of general waste bin weight. Diverting it significantly extends the life of existing landfill sites and delays the need for new ones.</p>
+        <div class="src">Source: Victorian council waste audits</div>
+      </div>
+      <div class="reason-card">
+        <div class="ric">🌱</div>
+        <h3>Healthier soil</h3>
+        <p>Composted organics return nutrients and structure to soil — supporting farms, parks and gardens instead of sitting inert underground for decades.</p>
+        <div class="src">Source: EPA Victoria compost standards</div>
+      </div>
+    </div>
+
+    <div class="methane">
+      <div>
+        <h3>Same waste, two very different outcomes</h3>
+        <p>In a landfill, food scraps are compacted and buried, so they decompose anaerobically (without oxygen) — this is the pathway that generates methane.</p>
+        <p>In a composting facility, the same scraps are kept aerated and turned regularly, so they break down aerobically — releasing mostly CO₂ and water vapour, and finishing as usable compost rather than buried waste.</p>
+      </div>
+      <div class="methane-visual">
+        <div class="compare-row">
+          <span class="compare-label">Landfill (anaerobic)</span>
+          <div class="compare-track"><div class="compare-bar" style="width:88%;background:var(--rust)"></div></div>
+        </div>
+        <div class="compare-row">
+          <span class="compare-label">Composting (aerobic)</span>
+          <div class="compare-track"><div class="compare-bar" style="width:22%"></div></div>
+        </div>
+        <p style="font-size:.8rem;color:rgba(246,244,236,.55);margin-top:16px">Illustrative comparison of relative methane potential between pathways, not measured emissions data.</p>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Pathway</th><th>Process</th><th>Main byproduct</th><th>End result</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="hl">General waste bin</td><td>Compacted, buried, anaerobic breakdown</td><td>Methane</td><td>Remains as landfill mass for decades</td></tr>
+          <tr><td class="hl">FOGO bin</td><td>Aerated, turned, aerobic breakdown</td><td>CO₂ + water vapour</td><td>Becomes usable compost in ~8 weeks</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="block" style="padding-top:0">
+  <div class="wrap" style="text-align:center">
+    <h2 class="sec-title" style="margin:0 auto 16px">Ready to sort with confidence?</h2>
+    <p class="sec-intro" style="margin-left:auto;margin-right:auto">Check the full item guide so nothing ends up in the wrong bin.</p>
+    <a href="what-goes-in.html" class="btn btn-primary">What goes in the bin →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand"><span class="lid"></span>FOGO</a>
+        <p class="tag">A plain-language guide to food and garden organics recycling — turning everyday scraps into compost instead of landfill.</p>
+      </div>
+      <div>
+        <h5>Learn</h5>
+        <ul>
+          <li><a href="what-goes-in.html">What goes in</a></li>
+          <li><a href="why-it-matters.html">Why it matters</a></li>
+          <li><a href="how-it-works.html">How it works</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Remember</h5>
+        <ul>
+          <li>Lime-green lid = FOGO</li>
+          <li>If you can eat it, it goes in</li>
+          <li>When in doubt, leave it out</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>© 2026 FOGO.com.au — Public education resource</span>
+      <span>Always check your local council for specific bin rules.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('menuBtn').addEventListener('click',()=>{
+  document.getElementById('nav').classList.toggle('open');
+});
+</script>
+</body>
+</html>

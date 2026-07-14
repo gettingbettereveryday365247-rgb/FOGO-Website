@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FOGO — Food &amp; Garden Organics | Turn your scraps into soil</title>
+<meta name="description" content="FOGO turns your food scraps and garden waste into compost instead of landfill. Learn what goes in the lime-green bin, why it matters, and how it works.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --leaf:#3d6b2c;        /* deep leaf green */
+  --lime:#b6d957;        /* FOGO lime lid */
+  --lime-bright:#c8e85a;
+  --soil:#3a2a1c;        /* dark composted soil */
+  --soil-soft:#5a4631;
+  --cream:#f6f4ec;       /* paper / oat */
+  --cream-deep:#ece7d8;
+  --bark:#7a5c3e;
+  --rust:#c4622d;        /* carrot / autumn accent */
+  --ink:#241c14;
+  --white:#fffdf8;
+  --shadow:rgba(58,42,28,.12);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  color:var(--ink);
+  background:var(--cream);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;line-height:1.05;font-weight:600}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+
+/* ---------- NAV ---------- */
+header.nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(246,244,236,.88);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--cream-deep);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{display:flex;align-items:center;gap:12px;font-family:'Fraunces';font-weight:900;font-size:1.4rem;letter-spacing:-.02em;color:var(--leaf)}
+.brand .lid{width:30px;height:18px;background:var(--lime);border-radius:6px 6px 3px 3px;border:2px solid var(--leaf);position:relative;flex:none}
+.brand .lid::after{content:"";position:absolute;left:50%;top:-5px;transform:translateX(-50%);width:12px;height:4px;background:var(--leaf);border-radius:3px}
+nav ul{display:flex;gap:30px;list-style:none;font-weight:500;font-size:.95rem}
+nav a{padding:6px 0;border-bottom:2px solid transparent;transition:.2s;color:var(--soil)}
+nav a:hover,nav a.active{border-color:var(--lime);color:var(--leaf)}
+.menu-btn{display:none;background:none;border:none;cursor:pointer;font-size:1.6rem;color:var(--leaf)}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;overflow:hidden;background:linear-gradient(160deg,var(--leaf) 0%,#2f5421 100%);color:var(--cream);padding:90px 0 110px}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 18% 30%,rgba(182,217,87,.18),transparent 42%),radial-gradient(circle at 85% 70%,rgba(196,98,45,.16),transparent 38%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:center;position:relative;z-index:2}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:.8rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--lime-bright);margin-bottom:22px}
+.eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 4px rgba(182,217,87,.25)}
+.hero h1{font-size:clamp(2.6rem,6vw,4.5rem);font-weight:600;letter-spacing:-.02em;margin-bottom:24px}
+.hero h1 em{font-style:italic;color:var(--lime-bright)}
+.hero p.lead{font-size:1.2rem;max-width:30ch;color:rgba(246,244,236,.86);margin-bottom:34px}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:14px 26px;border-radius:40px;font-weight:600;font-size:1rem;cursor:pointer;border:2px solid transparent;transition:.22s;font-family:inherit}
+.btn-primary{background:var(--lime);color:var(--soil)}
+.btn-primary:hover{background:var(--lime-bright);transform:translateY(-2px)}
+.btn-ghost{border-color:rgba(246,244,236,.4);color:var(--cream)}
+.btn-ghost:hover{border-color:var(--lime);color:var(--lime-bright)}
+
+/* hero bin illustration */
+.bin-illo{position:relative;justify-self:center;width:230px;height:300px;filter:drop-shadow(0 18px 30px rgba(0,0,0,.3))}
+.bin-body{position:absolute;bottom:0;left:15px;width:200px;height:225px;background:linear-gradient(180deg,#2f5320,#24401a);border-radius:14px 14px 18px 18px}
+.bin-body::before{content:"FOGO";position:absolute;top:54px;left:0;right:0;text-align:center;font-family:'Fraunces';font-weight:900;font-size:2.1rem;color:rgba(182,217,87,.9);letter-spacing:.05em}
+.bin-body::after{content:"food + garden organics";position:absolute;top:110px;left:0;right:0;text-align:center;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(246,244,236,.5)}
+.bin-lid{position:absolute;top:30px;left:0;width:230px;height:42px;background:var(--lime);border-radius:12px;transform-origin:left center;animation:lidlift 4.5s ease-in-out infinite}
+.bin-lid::after{content:"";position:absolute;left:50%;top:-12px;transform:translateX(-50%);width:46px;height:14px;background:var(--lime);border-radius:7px 7px 0 0}
+@keyframes lidlift{0%,72%,100%{transform:rotate(0)}80%,88%{transform:rotate(-17deg)}}
+.scrap{position:absolute;border-radius:50%;opacity:0;animation:drop 4.5s ease-in infinite}
+.scrap.s1{width:18px;height:18px;background:var(--rust);left:95px;animation-delay:.1s}
+.scrap.s2{width:14px;height:22px;background:#8bb04a;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;left:120px;animation-delay:.4s}
+.scrap.s3{width:16px;height:16px;background:#d8a13a;left:78px;animation-delay:.7s}
+@keyframes drop{0%,70%{opacity:0;top:60px}74%{opacity:1;top:70px}86%{opacity:1;top:150px}90%,100%{opacity:0;top:160px}}
+
+/* ---------- STAT STRIP ---------- */
+.strip{background:var(--soil);color:var(--cream);padding:0}
+.strip-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+.strip-item{padding:38px 28px;border-right:1px solid rgba(246,244,236,.12)}
+.strip-item:last-child{border-right:none}
+.strip-num{font-family:'Fraunces';font-weight:900;font-size:2.8rem;color:var(--lime);line-height:1}
+.strip-lbl{font-size:.95rem;color:rgba(246,244,236,.78);margin-top:8px}
+.strip-src{font-size:.72rem;color:rgba(246,244,236,.4);margin-top:6px}
+
+/* ---------- SECTION SHELL ---------- */
+section.block{padding:88px 0}
+.sec-eyebrow{font-size:.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--rust);margin-bottom:14px}
+.sec-title{font-size:clamp(2rem,4vw,2.9rem);color:var(--leaf);margin-bottom:18px;letter-spacing:-.01em;max-width:18ch}
+.sec-intro{font-size:1.12rem;color:var(--soil-soft);max-width:56ch;margin-bottom:44px}
+
+/* ---------- SORTER (SIGNATURE) ---------- */
+.sorter{background:var(--cream-deep)}
+.sorter-stage{display:grid;grid-template-columns:1fr 320px;gap:44px;align-items:start}
+.item-card{background:var(--white);border-radius:20px;padding:40px;text-align:center;box-shadow:0 10px 30px var(--shadow);min-height:320px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative}
+.item-emoji{font-size:5rem;line-height:1;margin-bottom:18px;transition:.3s}
+.item-name{font-family:'Fraunces';font-size:1.8rem;font-weight:600;color:var(--ink);margin-bottom:10px}
+.item-q{color:var(--soil-soft);font-size:1rem;margin-bottom:28px}
+.choice-row{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.choice{padding:12px 22px;border-radius:30px;font-weight:600;font-size:.95rem;cursor:pointer;border:2px solid var(--cream-deep);background:var(--cream);transition:.18s;font-family:inherit;color:var(--soil)}
+.choice:hover{border-color:var(--lime);transform:translateY(-2px)}
+.choice.fogo:hover{background:var(--lime);color:var(--soil)}
+.choice.no:hover{background:#e8d3c6;border-color:var(--rust)}
+.verdict{position:absolute;inset:0;background:var(--white);border-radius:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;opacity:0;pointer-events:none;transition:.3s;transform:scale(.96)}
+.verdict.show{opacity:1;pointer-events:auto;transform:scale(1)}
+.verdict.right{border:3px solid var(--lime)}
+.verdict.wrong{border:3px solid var(--rust)}
+.verdict-tag{font-family:'Fraunces';font-size:1.6rem;font-weight:700;margin-bottom:10px}
+.verdict.right .verdict-tag{color:var(--leaf)}
+.verdict.wrong .verdict-tag{color:var(--rust)}
+.verdict p{color:var(--soil-soft);margin-bottom:24px;max-width:34ch}
+.next-btn{padding:11px 24px;border-radius:30px;background:var(--leaf);color:var(--cream);border:none;font-weight:600;cursor:pointer;font-family:inherit;font-size:.95rem;transition:.2s}
+.next-btn:hover{background:#2f5421}
+.score-panel{background:var(--leaf);color:var(--cream);border-radius:20px;padding:34px}
+.score-panel h3{color:var(--lime-bright);font-size:1.3rem;margin-bottom:8px}
+.score-big{font-family:'Fraunces';font-weight:900;font-size:3.4rem;color:var(--cream);line-height:1}
+.score-panel .muted{color:rgba(246,244,236,.7);font-size:.9rem;margin-top:4px}
+.rule-box{margin-top:26px;padding-top:24px;border-top:1px solid rgba(246,244,236,.18)}
+.rule-box .rule{font-family:'Fraunces';font-style:italic;font-size:1.15rem;color:var(--lime-bright)}
+.rule-box .rule-sub{font-size:.85rem;color:rgba(246,244,236,.7);margin-top:8px}
+
+/* ---------- TWO LIST CARDS ---------- */
+.lists{background:var(--cream)}
+.list-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.list-card{border-radius:20px;padding:36px;border:1px solid var(--cream-deep)}
+.list-card.yes{background:linear-gradient(170deg,#eef6dc,#e3f0c8)}
+.list-card.no{background:linear-gradient(170deg,#f6e7dd,#f0dccf)}
+.list-head{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.list-chip{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:700;flex:none}
+.list-card.yes .list-chip{background:var(--lime);color:var(--soil)}
+.list-card.no .list-chip{background:var(--rust);color:var(--white)}
+.list-head h3{font-size:1.5rem;color:var(--ink)}
+.list-card ul{list-style:none}
+.list-card li{padding:9px 0 9px 30px;position:relative;border-bottom:1px dashed rgba(58,42,28,.14);color:var(--soil)}
+.list-card li:last-child{border-bottom:none}
+.list-card.yes li::before{content:"✓";position:absolute;left:0;color:var(--leaf);font-weight:700}
+.list-card.no li::before{content:"✕";position:absolute;left:0;color:var(--rust);font-weight:700}
+
+/* ---------- JOURNEY ---------- */
+.journey{background:var(--soil);color:var(--cream)}
+.journey .sec-title{color:var(--lime-bright)}
+.journey .sec-intro{color:rgba(246,244,236,.8)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:step}
+.step{position:relative;padding:30px 24px 30px 0}
+.step::before{counter-increment:step;content:"0" counter(step);font-family:'Fraunces';font-weight:900;font-size:1rem;color:var(--lime);display:block;margin-bottom:14px;letter-spacing:.05em}
+.step::after{content:"";position:absolute;top:42px;right:18px;width:calc(100% - 60px);height:2px;background:repeating-linear-gradient(90deg,var(--lime) 0 6px,transparent 6px 12px);opacity:.4}
+.step:last-child::after{display:none}
+.step .ic{font-size:2.4rem;margin-bottom:14px}
+.step h4{font-family:'Fraunces';font-size:1.2rem;font-weight:600;margin-bottom:8px;color:var(--cream)}
+.step p{font-size:.92rem;color:rgba(246,244,236,.74)}
+
+/* ---------- CTA BANNER ---------- */
+.cta-band{background:linear-gradient(135deg,var(--lime),#a3c948);padding:70px 0}
+.cta-band-inner{display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap}
+.cta-band h2{font-size:clamp(1.8rem,3.5vw,2.6rem);color:var(--soil);max-width:20ch}
+.cta-band p{color:var(--soil-soft);margin-top:10px;font-size:1.05rem}
+.btn-soil{background:var(--soil);color:var(--cream)}
+.btn-soil:hover{background:var(--ink);transform:translateY(-2px)}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--ink);color:rgba(246,244,236,.7);padding:60px 0 30px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:40px}
+footer .brand{color:var(--lime-bright);margin-bottom:14px}
+footer p.tag{max-width:34ch;font-size:.92rem}
+footer h5{color:var(--cream);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}
+footer ul{list-style:none}
+footer ul li{margin-bottom:9px;font-size:.92rem}
+footer ul a:hover{color:var(--lime-bright)}
+.foot-base{border-top:1px solid rgba(246,244,236,.12);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.82rem;color:rgba(246,244,236,.45)}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:880px){
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .bin-illo{display:none}
+  .strip-grid{grid-template-columns:1fr}
+  .strip-item{border-right:none;border-bottom:1px solid rgba(246,244,236,.12)}
+  .sorter-stage{grid-template-columns:1fr}
+  .list-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr;gap:16px}
+  .step::after{display:none}
+  nav ul{display:none}
+  .menu-btn{display:block}
+  nav.open ul{display:flex;position:absolute;top:72px;left:0;right:0;flex-direction:column;background:var(--cream);padding:20px 24px;gap:16px;border-bottom:1px solid var(--cream-deep)}
+  .foot-grid{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .steps{grid-template-columns:1fr}
+  .item-card{padding:28px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="brand"><span class="lid"></span>FOGO</a>
+    <nav id="nav">
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="what-goes-in.html">What goes in</a></li>
+        <li><a href="why-it-matters.html">Why it matters</a></li>
+        <li><a href="how-it-works.html">How it works</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow"><span class="dot"></span>Food Organics &amp; Garden Organics</span>
+      <h1>Your scraps don't end. They <em>become soil.</em></h1>
+      <p class="lead">Every banana peel and lawn clipping in your lime-green bin gets a second life as compost — not a slow rot in landfill.</p>
+      <div class="cta-row">
+        <a href="what-goes-in.html" class="btn btn-primary">What goes in the bin →</a>
+        <a href="why-it-matters.html" class="btn btn-ghost">Why it matters</a>
+      </div>
+    </div>
+    <div class="bin-illo" aria-hidden="true">
+      <span class="scrap s1"></span><span class="scrap s2"></span><span class="scrap s3"></span>
+      <div class="bin-body"></div>
+      <div class="bin-lid"></div>
+    </div>
+  </div>
+</section>
+
+<!-- STAT STRIP -->
+<section class="strip">
+  <div class="wrap strip-grid">
+    <div class="strip-item">
+      <div class="strip-num">~40%</div>
+      <div class="strip-lbl">of a typical rubbish bin is food waste that could be composted</div>
+      <div class="strip-src">Source: Victorian council waste audits</div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-num">CH₄</div>
+      <div class="strip-lbl">Food in landfill releases methane — a greenhouse gas far stronger than CO₂</div>
+      <div class="strip-src">Source: Sustainability Victoria</div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-num">2030</div>
+      <div class="strip-lbl">Victoria's goal to halve organic waste sent to landfill</div>
+      <div class="strip-src">Source: vic.gov.au recycling reform</div>
+    </div>
+  </div>
+</section>
+
+<!-- SORTER SIGNATURE -->
+<section class="block sorter" id="sorter">
+  <div class="wrap">
+    <div class="sec-eyebrow">Test yourself</div>
+    <h2 class="sec-title">Bin it or bin it wrong?</h2>
+    <p class="sec-intro">One in every few bins gets rejected at the facility because of the wrong items. Tap your answer and find out where each thing really belongs.</p>
+    <div class="sorter-stage">
+      <div class="item-card" id="card">
+        <div class="item-emoji" id="emoji">🍌</div>
+        <div class="item-name" id="iname">Banana peel</div>
+        <div class="item-q">Lime-green FOGO bin, or somewhere else?</div>
+        <div class="choice-row">
+          <button class="choice fogo" onclick="answer(true)">FOGO bin</button>
+          <button class="choice no" onclick="answer(false)">Not FOGO</button>
+        </div>
+        <div class="verdict" id="verdict">
+          <div class="verdict-tag" id="vtag"></div>
+          <p id="vtext"></p>
+          <button class="next-btn" onclick="nextItem()">Next item →</button>
+        </div>
+      </div>
+      <div class="score-panel">
+        <h3>Your sorting score</h3>
+        <div class="score-big"><span id="score">0</span>/<span id="total">0</span></div>
+        <div class="muted">Keep going — there are <span id="left">8</span> items.</div>
+        <div class="rule-box">
+          <div class="rule">"If you can eat it, or it grew in the ground — it goes in FOGO."</div>
+          <div class="rule-sub">The one rule worth remembering. Everything else is detail.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TWO LISTS -->
+<section class="block lists">
+  <div class="wrap">
+    <div class="sec-eyebrow">The quick guide</div>
+    <h2 class="sec-title">Yes please, and no thanks</h2>
+    <p class="sec-intro">When in doubt, leave it out — one wrong item can contaminate a whole truckload. Here are the everyday ones.</p>
+    <div class="list-grid">
+      <div class="list-card yes">
+        <div class="list-head"><span class="list-chip">✓</span><h3>Goes in FOGO</h3></div>
+        <ul>
+          <li>Fruit &amp; vegetable scraps</li>
+          <li>Meat, bones &amp; seafood shells</li>
+          <li>Dairy, eggshells &amp; bread</li>
+          <li>Tea leaves &amp; coffee grounds</li>
+          <li>Lawn clippings, leaves &amp; weeds</li>
+          <li>Small branches &amp; prunings</li>
+          <li>Soiled paper towel &amp; newspaper</li>
+        </ul>
+      </div>
+      <div class="list-card no">
+        <div class="list-head"><span class="list-chip">✕</span><h3>Keep these out</h3></div>
+        <ul>
+          <li>Plastic bags &amp; soft plastics</li>
+          <li>"Compostable" or bioplastic liners*</li>
+          <li>Glass, metal &amp; recyclables</li>
+          <li>Nappies &amp; wet wipes</li>
+          <li>Soil, rocks &amp; rubble</li>
+          <li>Treated or painted timber</li>
+          <li>Pet waste &amp; kitty litter</li>
+        </ul>
+      </div>
+    </div>
+    <p style="font-size:.85rem;color:var(--soil-soft);margin-top:18px">*Many councils no longer accept compostable liners — check yours. Only lined caddies using council-issued lime-green liners may be permitted.</p>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section class="block journey">
+  <div class="wrap">
+    <div class="sec-eyebrow" style="color:var(--lime)">From kerb to compost</div>
+    <h2 class="sec-title">Where it actually goes</h2>
+    <p class="sec-intro">Your bin isn't the end of the line — it's the start of a roughly eight-week journey back into living soil.</p>
+    <div class="steps">
+      <div class="step"><div class="ic">🪣</div><h4>Caddy &amp; bin</h4><p>Scraps collect in your kitchen caddy, then empty into the lime-green bin.</p></div>
+      <div class="step"><div class="ic">🚛</div><h4>Collected</h4><p>Picked up kerbside and trucked to a local composting facility.</p></div>
+      <div class="step"><div class="ic">🌡️</div><h4>Composted</h4><p>Aerated and heated for weeks — microbes break it down and kill pathogens.</p></div>
+      <div class="step"><div class="ic">🌱</div><h4>Back to earth</h4><p>Screened into rich compost for farms, parks and gardens.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="wrap cta-band-inner">
+    <div>
+      <h2>Small habit. Serious impact.</h2>
+      <p>Learn the why behind the bin, and how your scraps become soil.</p>
+    </div>
+    <div class="cta-row">
+      <a href="why-it-matters.html" class="btn btn-soil">Why it matters →</a>
+      <a href="how-it-works.html" class="btn btn-ghost" style="border-color:var(--soil);color:var(--soil)">How it works</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand"><span class="lid"></span>FOGO</a>
+        <p class="tag">A plain-language guide to food and garden organics recycling — turning everyday scraps into compost instead of landfill.</p>
+      </div>
+      <div>
+        <h5>Learn</h5>
+        <ul>
+          <li><a href="what-goes-in.html">What goes in</a></li>
+          <li><a href="why-it-matters.html">Why it matters</a></li>
+          <li><a href="how-it-works.html">How it works</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Remember</h5>
+        <ul>
+          <li>Lime-green lid = FOGO</li>
+          <li>If you can eat it, it goes in</li>
+          <li>When in doubt, leave it out</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>© 2026 FOGO.com.au — Public education resource</span>
+      <span>Always check your local council for specific bin rules.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const items=[
+  {e:"🍌",n:"Banana peel",fogo:true,t:"Fruit and veg scraps are the heart of FOGO. Straight in."},
+  {e:"🍗",n:"Chicken bones",fogo:true,t:"Yes — unlike home compost, FOGO facilities handle meat, bones and dairy."},
+  {e:"🛍️",n:"Plastic bag",fogo:false,t:"Never. Plastic is the #1 contaminant. Empty scraps loose, don't bag them."},
+  {e:"🍂",n:"Dead leaves",fogo:true,t:"Garden organics belong here — leaves, clippings, weeds and small prunings."},
+  {e:"☕",n:"Coffee grounds",fogo:true,t:"Grounds and loose tea leaves are perfect FOGO material."},
+  {e:"🍷",n:"Glass bottle",fogo:false,t:"That's recycling (yellow lid). Glass never goes in FOGO."},
+  {e:"🥚",n:"Eggshells",fogo:true,t:"Yes — eggshells break down and add minerals to the compost."},
+  {e:"🧷",n:"Nappy",fogo:false,t:"General waste only. Nappies and wet wipes contaminate the whole load."}
+];
+let i=0,score=0,answered=0;
+const card=document.getElementById('card');
+function render(){
+  document.getElementById('emoji').textContent=items[i].e;
+  document.getElementById('iname').textContent=items[i].n;
+  document.getElementById('left').textContent=items.length-answered;
+  document.getElementById('total').textContent=items.length;
+}
+function answer(choice){
+  const correct=(choice===items[i].fogo);
+  if(correct)score++;
+  answered++;
+  const v=document.getElementById('verdict');
+  v.className='verdict show '+(correct?'right':'wrong');
+  document.getElementById('vtag').textContent=correct?"Spot on!":"Not quite";
+  document.getElementById('vtext').textContent=items[i].t;
+  document.getElementById('score').textContent=score;
+  document.getElementById('left').textContent=items.length-answered;
+}
+function nextItem(){
+  document.getElementById('verdict').className='verdict';
+  i=(i+1)%items.length;
+  if(answered>=items.length){
+    document.querySelector('.muted').innerHTML="Nice work! You scored <strong>"+score+"/"+items.length+"</strong>. Tap to keep practising.";
+  }
+  render();
+}
+render();
+document.getElementById('menuBtn').addEventListener('click',()=>{
+  document.getElementById('nav').classList.toggle('open');
+});
+</script>
+</body>
+</html>

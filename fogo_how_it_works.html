@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How It Works — FOGO | Food &amp; Garden Organics</title>
+<meta name="description" content="From kitchen caddy to finished compost — the full journey of your FOGO bin, step by step.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --leaf:#3d6b2c;--lime:#b6d957;--lime-bright:#c8e85a;--soil:#3a2a1c;--soil-soft:#5a4631;
+  --cream:#f6f4ec;--cream-deep:#ece7d8;--bark:#7a5c3e;--rust:#c4622d;--ink:#241c14;--white:#fffdf8;
+  --shadow:rgba(58,42,28,.12);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;line-height:1.05;font-weight:600}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+
+header.nav{position:sticky;top:0;z-index:50;background:rgba(246,244,236,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--cream-deep)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{display:flex;align-items:center;gap:12px;font-family:'Fraunces';font-weight:900;font-size:1.4rem;letter-spacing:-.02em;color:var(--leaf)}
+.brand .lid{width:30px;height:18px;background:var(--lime);border-radius:6px 6px 3px 3px;border:2px solid var(--leaf);position:relative;flex:none}
+.brand .lid::after{content:"";position:absolute;left:50%;top:-5px;transform:translateX(-50%);width:12px;height:4px;background:var(--leaf);border-radius:3px}
+nav ul{display:flex;gap:30px;list-style:none;font-weight:500;font-size:.95rem}
+nav a{padding:6px 0;border-bottom:2px solid transparent;transition:.2s;color:var(--soil)}
+nav a:hover,nav a.active{border-color:var(--lime);color:var(--leaf)}
+.menu-btn{display:none;background:none;border:none;cursor:pointer;font-size:1.6rem;color:var(--leaf)}
+
+.pagehead{background:linear-gradient(160deg,var(--leaf) 0%,#2f5421 100%);color:var(--cream);padding:64px 0}
+.pagehead .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:.8rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--lime-bright);margin-bottom:18px}
+.pagehead .eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 4px rgba(182,217,87,.25)}
+.pagehead h1{font-size:clamp(2.2rem,5vw,3.4rem);max-width:22ch}
+.pagehead p{margin-top:16px;color:rgba(246,244,236,.85);max-width:56ch;font-size:1.1rem}
+
+section.block{padding:80px 0}
+.sec-eyebrow{font-size:.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--rust);margin-bottom:14px}
+.sec-title{font-size:clamp(1.8rem,3.6vw,2.5rem);color:var(--leaf);margin-bottom:14px;letter-spacing:-.01em;max-width:20ch}
+.sec-intro{font-size:1.05rem;color:var(--soil-soft);max-width:60ch;margin-bottom:40px}
+
+/* timeline */
+.timeline{position:relative;padding-left:8px}
+.tl-item{display:grid;grid-template-columns:90px 1fr;gap:28px;position:relative;padding-bottom:48px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:"";position:absolute;left:44px;top:56px;bottom:-4px;width:2px;background:repeating-linear-gradient(180deg,var(--lime) 0 6px,transparent 6px 12px)}
+.tl-item:last-child::before{display:none}
+.tl-week{font-family:'Fraunces';font-weight:700;color:var(--leaf);font-size:1rem;text-align:center;padding-top:8px}
+.tl-card{background:var(--white);border-radius:18px;padding:28px 32px;box-shadow:0 8px 22px var(--shadow);display:flex;gap:20px;align-items:flex-start}
+.tl-ic{font-size:2.2rem;flex:none}
+.tl-card h3{font-size:1.25rem;margin-bottom:8px;color:var(--ink)}
+.tl-card p{font-size:.95rem;color:var(--soil-soft)}
+
+/* facility stats */
+.fstats{background:var(--soil);border-radius:24px;padding:48px;margin-top:60px;color:var(--cream)}
+.fstats h3{color:var(--lime-bright);font-size:1.6rem;margin-bottom:30px;text-align:center}
+.fstat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.fstat{text-align:center}
+.fstat .fnum{font-family:'Fraunces';font-weight:900;font-size:2.4rem;color:var(--lime)}
+.fstat .flbl{font-size:.9rem;color:rgba(246,244,236,.75);margin-top:6px}
+
+/* FAQ accordion */
+.faq{margin-top:60px}
+.faq-item{background:var(--white);border-radius:14px;margin-bottom:12px;overflow:hidden;box-shadow:0 4px 14px var(--shadow)}
+.faq-q{padding:20px 26px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-weight:600;font-size:1.02rem}
+.faq-q .plus{font-size:1.4rem;color:var(--leaf);transition:.25s;flex:none;margin-left:16px}
+.faq-item.open .plus{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.faq-a p{padding:0 26px 22px;color:var(--soil-soft);font-size:.95rem}
+
+.btn{display:inline-flex;align-items:center;gap:9px;padding:14px 26px;border-radius:40px;font-weight:600;font-size:1rem;cursor:pointer;border:2px solid transparent;transition:.22s;font-family:inherit}
+.btn-primary{background:var(--lime);color:var(--soil)}
+.btn-primary:hover{background:var(--lime-bright);transform:translateY(-2px)}
+
+footer{background:var(--ink);color:rgba(246,244,236,.7);padding:60px 0 30px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:40px}
+footer .brand{color:var(--lime-bright);margin-bottom:14px}
+footer p.tag{max-width:34ch;font-size:.92rem}
+footer h5{color:var(--cream);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}
+footer ul{list-style:none}
+footer ul li{margin-bottom:9px;font-size:.92rem}
+footer ul a:hover{color:var(--lime-bright)}
+.foot-base{border-top:1px solid rgba(246,244,236,.12);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.82rem;color:rgba(246,244,236,.45)}
+
+@media(max-width:880px){
+  .tl-item{grid-template-columns:60px 1fr;gap:16px}
+  .tl-item::before{left:29px}
+  .fstat-grid{grid-template-columns:1fr}
+  nav ul{display:none}
+  .menu-btn{display:block}
+  nav.open ul{display:flex;position:absolute;top:72px;left:0;right:0;flex-direction:column;background:var(--cream);padding:20px 24px;gap:16px;border-bottom:1px solid var(--cream-deep)}
+  .foot-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="brand"><span class="lid"></span>FOGO</a>
+    <nav id="nav">
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="what-goes-in.html">What goes in</a></li>
+        <li><a href="why-it-matters.html">Why it matters</a></li>
+        <li><a href="how-it-works.html" class="active">How it works</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="pagehead">
+  <div class="wrap">
+    <span class="eyebrow"><span class="dot"></span>Kerb to compost</span>
+    <h1>The full journey of your FOGO bin</h1>
+    <p>From your kitchen caddy to finished compost takes about eight weeks. Here's exactly what happens at each stage.</p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="sec-eyebrow">Step by step</div>
+    <h2 class="sec-title">Where it goes after collection</h2>
+    <p class="sec-intro">Councils vary slightly in collection frequency and processing partners, but the core process is the same everywhere FOGO operates.</p>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-week">Day 0</div>
+        <div class="tl-card">
+          <div class="tl-ic">🪣</div>
+          <div><h3>Kitchen caddy</h3><p>Scraps collect in a small benchtop caddy — no liner needed, or a council-approved one only, depending on local rules.</p></div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-week">Day 0–7</div>
+        <div class="tl-card">
+          <div class="tl-ic">🗑️</div>
+          <div><h3>Outdoor bin</h3><p>Caddy empties into the lime-green FOGO bin along with garden clippings, ready for kerbside collection on your council's schedule.</p></div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-week">Collection day</div>
+        <div class="tl-card">
+          <div class="tl-ic">🚛</div>
+          <div><h3>Kerbside collection</h3><p>A dedicated truck collects FOGO separately from general waste and recycling, taking it directly to a licensed organics processing facility.</p></div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-week">Week 1</div>
+        <div class="tl-card">
+          <div class="tl-ic">⚙️</div>
+          <div><h3>Shredding &amp; mixing</h3><p>Material is shredded and blended to balance moisture and carbon-to-nitrogen ratio, which helps it break down evenly.</p></div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-week">Weeks 2–6</div>
+        <div class="tl-card">
+          <div class="tl-ic">🌡️</div>
+          <div><h3>Active composting</h3><p>Piles are aerated and regularly turned. Internal temperatures rise well above body temperature, which breaks down material fast and destroys weed seeds and pathogens.</p></div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-week">Weeks 6–8</div>
+        <div class="tl-card">
+          <div class="tl-ic">🔍</div>
+          <div><h3>Curing &amp; screening</h3><p>The compost cures and is screened to remove any contaminants (like stray plastic) and achieve a fine, even texture.</p></div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-week">Week 8+</div>
+        <div class="tl-card">
+          <div class="tl-ic">🌱</div>
+          <div><h3>Back to the land</h3><p>Finished compost is supplied to farms, vineyards, parks and landscaping — closing the loop back into soil.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fstats">
+      <h3>The process, in numbers</h3>
+      <div class="fstat-grid">
+        <div class="fstat"><div class="fnum">~8 wks</div><div class="flbl">Typical time from bin to finished compost</div></div>
+        <div class="fstat"><div class="fnum">55°C+</div><div class="flbl">Peak pile temperature reached during active composting</div></div>
+        <div class="fstat"><div class="fnum">0</div><div class="flbl">Landfill airspace used by properly sorted FOGO material</div></div>
+      </div>
+    </div>
+
+    <div class="faq">
+      <div class="sec-eyebrow" style="margin-top:60px">Common questions</div>
+      <h2 class="sec-title">FAQ</h2>
+      <div class="faq-item">
+        <div class="faq-q">Do I need a compostable liner? <span class="plus">+</span></div>
+        <div class="faq-a"><p>It depends on your council. Some accept certified compostable liners (look for the AS 4736 standard), others prefer no liner at all since caddies can be rinsed. Check your council's website — using the wrong liner is a common cause of contamination.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What happens if I put the wrong thing in? <span class="plus">+</span></div>
+        <div class="faq-a"><p>A small amount is usually screened out during processing. But too much contamination — especially plastic — can cause an entire truckload to be rejected and sent to landfill instead, which is why sorting carefully matters.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I compost at home instead? <span class="plus">+</span></div>
+        <div class="faq-a"><p>Yes, and home composting is great for fruit and veg scraps. But most home systems can't safely handle meat, bones, dairy or large volumes of garden waste — the FOGO bin covers everything home compost can't.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Where does the finished compost actually go? <span class="plus">+</span></div>
+        <div class="faq-a"><p>It's typically sold or supplied to agriculture, viticulture, landscaping and council parks programs — genuinely returning to the land rather than sitting in landfill.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" style="padding-top:0">
+  <div class="wrap" style="text-align:center">
+    <h2 class="sec-title" style="margin:0 auto 16px">Ready to start sorting?</h2>
+    <p class="sec-intro" style="margin-left:auto;margin-right:auto">Head back to the item guide any time you're unsure what goes where.</p>
+    <a href="what-goes-in.html" class="btn btn-primary">What goes in the bin →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand"><span class="lid"></span>FOGO</a>
+        <p class="tag">A plain-language guide to food and garden organics recycling — turning everyday scraps into compost instead of landfill.</p>
+      </div>
+      <div>
+        <h5>Learn</h5>
+        <ul>
+          <li><a href="what-goes-in.html">What goes in</a></li>
+          <li><a href="why-it-matters.html">Why it matters</a></li>
+          <li><a href="how-it-works.html">How it works</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Remember</h5>
+        <ul>
+          <li>Lime-green lid = FOGO</li>
+          <li>If you can eat it, it goes in</li>
+          <li>When in doubt, leave it out</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>© 2026 FOGO.com.au — Public education resource</span>
+      <span>Always check your local council for specific bin rules.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.addEventListener('click',()=>{
+    const item=q.parentElement;
+    const a=item.querySelector('.faq-a');
+    const wasOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(f=>{f.classList.remove('open');f.querySelector('.faq-a').style.maxHeight=null;});
+    if(!wasOpen){item.classList.add('open');a.style.maxHeight=a.scrollHeight+'px';}
+  });
+});
+document.getElementById('menuBtn').addEventListener('click',()=>{
+  document.getElementById('nav').classList.toggle('open');
+});
+</script>
+</body>
+</html>
